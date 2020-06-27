@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gdhote/pages/dashboard/dashboard_page.dart';
+import 'package:gdhote/models/signin/signin_model.dart';
 import 'package:gdhote/pages/signup/siginup_page.dart';
 import 'package:gdhote/utils/helpers/theme_wrapper.dart';
 import 'package:gdhote/utils/regexps/regexps.dart';
@@ -28,10 +28,9 @@ class _Controller extends State<SignInPage> {
   }
 
   void signInButtonOnPressed() {
-    if (this.formKey.currentState.validate()) {}
-
-    Navigator.pushReplacementNamed(
-        context, DashboardPage.DashboardPageRouteName);
+    if (this.formKey.currentState.validate()) {
+      this.buildPayloadAndSendRequest();
+    }
   }
 
   void forgotPasswordButtonOnPressed() {}
@@ -64,6 +63,13 @@ class _Controller extends State<SignInPage> {
 
   void openCreateNewAccountPage() {
     Navigator.pushNamed(context, SignUpPage.SiginUpPageRouteName);
+  }
+
+  void buildPayloadAndSendRequest() {
+    SignInModel payload = SignInModel(
+      userName: emailController.text,
+      password: passwordController.text,
+    );
   }
 }
 
