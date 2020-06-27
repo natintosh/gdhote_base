@@ -17,11 +17,7 @@ class GdhoteThemeData {
         : Brightness.light;
   }
 
-  static ThemeMode getThemeMode(AsyncSnapshot<ThemeOptionType> snapshot) {
-    if (snapshot.hasError) return ThemeMode.light;
-
-    ThemeOptionType optionType = snapshot.data;
-
+  static ThemeMode getThemeMode(ThemeOptionType optionType) {
     return optionType == ThemeOptionType.LIGHT
         ? ThemeMode.light
         : optionType == ThemeOptionType.DARK

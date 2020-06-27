@@ -13,7 +13,6 @@ import 'package:gdhote/pages/user_profile/pages/user_history.dart';
 import 'package:gdhote/pages/user_profile/pages/user_history_details.dart';
 import 'package:gdhote/pages/user_profile/user_profile_page.dart';
 import 'package:gdhote/providers/settings/settings_provider.dart';
-import 'package:gdhote/utils/helpers/types_helper.dart';
 import 'package:gdhote/utils/themes/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -31,20 +30,24 @@ class GdhoteApp extends StatelessWidget {
       ),
     );
 
-    return FutureBuilder(
-      future: context.watch<SettingsProvider>().getUserThemeOption(),
-      builder: (BuildContext context, AsyncSnapshot<ThemeOptionType> snapshot) {
+    return FutureProvider(
+      create: (_) {
+        return null;
+      },
+      builder: (_, __) {
         print('rebuild');
         return MaterialApp(
           title: 'GDHOTE App',
           theme: GdhoteThemeData.lightTheme,
           darkTheme: GdhoteThemeData.darkTheme,
-          themeMode: GdhoteThemeData.getThemeMode(snapshot),
+          themeMode: GdhoteThemeData.getThemeMode(
+              context.read<SettingsProvider>().themeOption),
           debugShowCheckedModeBanner: false,
           initialRoute: SplashScreenPage.SplashScreenRouteName,
           onGenerateRoute: onGenerateRoute,
         );
       },
+      child: Container(),
     );
   }
 
