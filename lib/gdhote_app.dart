@@ -17,6 +17,9 @@ import 'package:gdhote/utils/themes/theme.dart';
 import 'package:provider/provider.dart';
 
 class GdhoteApp extends StatelessWidget {
+  static final GlobalKey<ScaffoldState> globalScaffoldKey =
+      GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -35,7 +38,6 @@ class GdhoteApp extends StatelessWidget {
         return null;
       },
       builder: (_, __) {
-        print('rebuild');
         return MaterialApp(
           title: 'GDHOTE App',
           theme: GdhoteThemeData.lightTheme,
