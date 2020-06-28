@@ -8,7 +8,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  await Hive.initFlutter();
+  Hive.initFlutter();
   Hive.registerAdapter(UserAccountModelAdapter());
   Hive.registerAdapter(UserGroupModelAdapter());
   

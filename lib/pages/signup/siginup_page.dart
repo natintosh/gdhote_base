@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gdhote/gdhote_app.dart';
 import 'package:gdhote/models/create_user/create_user_model.dart';
 import 'package:gdhote/services/gdhote_api_service.dart';
 import 'package:gdhote/utils/helpers/scaffold_helper.dart';
@@ -139,13 +140,12 @@ class _Controller extends State<SignUpPage> {
 
   void validateResponse(Tuple2<bool, String> response) async {
     ScaffoldHelper.showSnackBar(
-      key: this.scaffoldKey,
+      key: GdhoteApp.globalScaffoldKey,
       message: response.item2,
       isSuccess: response.item1,
     );
 
     if (response.item1) {
-      await Future.delayed(Duration(milliseconds: 4000));
       Navigator.pop(context);
     }
   }

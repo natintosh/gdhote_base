@@ -45,6 +45,12 @@ class GdhoteApp extends StatelessWidget {
           themeMode: GdhoteThemeData.getThemeMode(
               context.read<SettingsProvider>().themeOption),
           debugShowCheckedModeBanner: false,
+          builder: (context, child) {
+            return Scaffold(
+              key: globalScaffoldKey,
+              body: child,
+            );
+          },
           initialRoute: SplashScreenPage.SplashScreenRouteName,
           onGenerateRoute: onGenerateRoute,
         );

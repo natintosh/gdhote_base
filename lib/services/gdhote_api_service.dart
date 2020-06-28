@@ -30,12 +30,15 @@ class GdhoteApiService {
       return Tuple2<bool, String>(false, 'An unknown error occurred');
     }
 
-    UserAccountModel userAccountModel =
-        UserAccountModel.fromJson(response.result);
+    if (_isStatusSuccess(response.status)) {
+      UserAccountModel userAccountModel =
+          UserAccountModel.fromJson(response.result);
 
-    var userAccounts = await Hive.openBox(UserAccountModel.userAccountBoxName);
+      var userAccounts =
+          await Hive.openBox(UserAccountModel.userAccountBoxName);
 
-    userAccounts.add(userAccountModel);
+      userAccounts.add(userAccountModel);
+    }
 
     return Tuple2<bool, String>(
       _isStatusSuccess(response.status),
