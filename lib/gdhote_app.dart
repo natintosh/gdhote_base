@@ -70,7 +70,7 @@ class GdhoteApp extends StatelessWidget {
       case SignInPage.SignInPageRouteName:
         builder = SignInPage();
         break;
-      case SignUpPage.SiginUpPageRouteName:
+      case SignUpPage.SignUpPageRouteName:
         builder = SignUpPage();
         break;
       case DashboardPage.DashboardPageRouteName:

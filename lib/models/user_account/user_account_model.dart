@@ -8,6 +8,7 @@ part 'user_account_model.g.dart';
 @HiveType(typeId: 0)
 class UserAccountModel extends HiveObject {
   static const userAccountBoxName = 'user-account';
+  static const userAccountBoxKey = 'user';
 
   @JsonKey(name: 'id')
   @HiveField(0)

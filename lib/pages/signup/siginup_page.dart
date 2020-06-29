@@ -10,7 +10,7 @@ import 'package:loading_indicator/loading_indicator.dart';
 import 'package:tuple/tuple.dart';
 
 class SignUpPage extends StatefulWidget {
-  static const SiginUpPageRouteName = "/signup";
+  static const SignUpPageRouteName = "/signup";
 
   @override
   State<StatefulWidget> createState() => _Controller();

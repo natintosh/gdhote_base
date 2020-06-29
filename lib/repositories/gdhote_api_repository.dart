@@ -61,4 +61,24 @@ class GdhoteApiRepository {
       return null;
     }
   }
+
+  static Future<ResponseModel> logOutUser() async {
+    final dio = DioConfig.getDio;
+    final url = BASE_URL + Logout;
+
+    dio.interceptors
+      ..addAll(
+        [
+          DioResponseInterceptor(),
+        ],
+      );
+
+      try {
+        Response<ResponseModel> response = await dio.get(url);
+
+        return response.data;
+      } on DioError {
+        return null;
+      }
+  }
 }

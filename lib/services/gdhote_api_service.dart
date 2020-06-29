@@ -26,18 +26,29 @@ class GdhoteApiService {
       {SignInModel signInModel}) async {
     ResponseModel response = await GdhoteApiRepository.loginUser(signInModel);
 
-    if (response == null) {
-      return Tuple2<bool, String>(false, 'An unknown error occurred');
-    }
+    if (response == null) {}
 
     if (_isStatusSuccess(response.status)) {
       UserAccountModel userAccountModel =
           UserAccountModel.fromJson(response.result);
 
-      var userAccounts =
-          await Hive.openBox(UserAccountModel.userAccountBoxName);
+      var userAccountBox = await Hive.openBox<UserAccountModel>(
+          UserAccountModel.userAccountBoxName);
 
-      userAccounts.add(userAccountModel);
+      userAccountBox.put(UserAccountModel.userAccountBoxKey, userAccountModel);
+    }
+
+    return Tuple2<bool, String>(
+      _isStatusSuccess(response.status),
+      response.userMessage,
+    );
+  }
+
+  static Future<Tuple2<bool, String>> logOutUser() async {
+    ResponseModel response = await GdhoteApiRepository.logOutUser();
+
+    if (response == null) {
+      return Tuple2<bool, String>(false, 'An unknown error occurred');
     }
 
     return Tuple2<bool, String>(

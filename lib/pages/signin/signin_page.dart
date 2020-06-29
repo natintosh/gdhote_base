@@ -73,7 +73,7 @@ class _Controller extends State<SignInPage> {
   }
 
   void openCreateNewAccountPage() {
-    Navigator.pushNamed(context, SignUpPage.SiginUpPageRouteName);
+    Navigator.pushNamed(context, SignUpPage.SignUpPageRouteName);
   }
 
   void buildPayloadAndSendRequest() async {

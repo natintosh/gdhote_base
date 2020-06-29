@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gdhote/models/user_account/user_account_model.dart';
 import 'package:gdhote/pages/add_beneficiary/add_beneficiary_page.dart';
 import 'package:gdhote/pages/dashboard/widgets/dashboard_card.dart';
 import 'package:gdhote/pages/search/search_page.dart';
 import 'package:gdhote/pages/settings/settings_page.dart';
 import 'package:gdhote/utils/views/widget_view.dart';
 import 'package:gdhote/widgets/open_contrainer_wrapper.dart';
+import 'package:hive/hive.dart';
 
 class DashboardPage extends StatefulWidget {
   static const DashboardPageRouteName = '/dashboard';
@@ -35,6 +37,9 @@ class _WidgetView extends WidgetView<DashboardPage, _Controller> {
 
   @override
   Widget build(BuildContext context) {
+    final userbox =
+        Hive.box<UserAccountModel>(UserAccountModel.userAccountBoxName);
+
     return Scaffold(
         body: Padding(
       padding: MediaQuery.of(context).viewPadding,
