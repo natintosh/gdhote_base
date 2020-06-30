@@ -197,18 +197,13 @@ class _WidgetView extends WidgetView<SignInPage, _Controller> {
                     child: Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: state.isLoading
-                          ? SizedBox(
-                              width: Theme.of(context)
-                                  .textTheme
-                                  .headline3
-                                  .fontSize,
-                              height: Theme.of(context)
-                                  .textTheme
-                                  .headline3
-                                  .fontSize,
-                              child: LoadingIndicator(
-                                indicatorType: Indicator.lineSpinFadeLoader,
-                                color: Colors.white,
+                          ? Center(
+                              child: Container(
+                                height: 48.0,
+                                width: 48.0,
+                                child: LoadingIndicator(
+                                  indicatorType: Indicator.ballSpinFadeLoader,
+                                ),
                               ),
                             )
                           : Icon(
