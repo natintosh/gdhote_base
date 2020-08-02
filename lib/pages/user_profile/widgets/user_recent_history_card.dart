@@ -59,13 +59,13 @@ class UserRecentHistoryCard extends StatelessWidget {
                     alignment: Alignment.topCenter,
                     child: Container(
                       padding: const EdgeInsets.all(20.0),
-                      child: SvgPicture.asset(getSvgPath(status)),
+                      // child: SvgPicture.asset(getSvgPath(status)),
                     ),
                   ),
                   Align(
                     alignment: Alignment.topRight,
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Text(
                         status,
                         style: Theme.of(context).accentTextTheme.headline6,
@@ -145,6 +145,6 @@ class UserRecentHistoryCard extends StatelessWidget {
   }
 
   Color getCardColor(String status) {
-    return status == 'new' ? Color(0xFF4E4E60) : Color(0xFF00962A);
+    return status == 'new' ? Color(0xFF7dd140) : Color(0xFF76b73f);
   }
 }

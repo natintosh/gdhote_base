@@ -43,7 +43,7 @@ class _WidgetView extends WidgetView<UserHistoryDetailsPage, _Controller> {
                       ),
                       Text(
                         '25th of March, 2020',
-                        style: Theme.of(context).textTheme.headline6,
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ],
                   ),
@@ -55,20 +55,7 @@ class _WidgetView extends WidgetView<UserHistoryDetailsPage, _Controller> {
               ],
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Chip(
-                label: Text('completed'),
-                labelStyle: Theme.of(context).accentTextTheme.bodyText1,
-                backgroundColor: Color(0xFF00962A),
-                labelPadding: EdgeInsets.all(8.0),
-                padding: EdgeInsets.all(8.0),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Divider(),
             ListTile(
@@ -79,6 +66,37 @@ class _WidgetView extends WidgetView<UserHistoryDetailsPage, _Controller> {
               title: Text('Quantity'),
               subtitle: Text('5 Litres'),
             ),
+            ListTile(
+              title: Text('Status'),
+              subtitle: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  margin: const EdgeInsets.only(top: 4),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 12.0,
+                  ),
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    color: Color(0xFF76b73f),
+                  ),
+                  child: Text(
+                    'Completed',
+                    style: Theme.of(context)
+                        .textTheme
+                        .caption
+                        .copyWith(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Comment'),
+              subtitle: Text(
+                  'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.'),
+            )
           ],
         ),
       ),

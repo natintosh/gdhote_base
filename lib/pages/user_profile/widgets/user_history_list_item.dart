@@ -13,7 +13,7 @@ class UserHistoryListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.15,
+      height: MediaQuery.of(context).size.height * 0.175,
       width: double.infinity,
       child: Card(
         child: InkWell(
@@ -64,12 +64,18 @@ class UserHistoryListItem extends StatelessWidget {
   Widget buildStatusAvatar(String status) {
     return status == 'new'
         ? CircleAvatar(
-            backgroundColor: Color(0xFF4E4E60),
-            child: Icon(Icons.timelapse),
+            backgroundColor: Color(0xFF7dd140),
+            child: Icon(
+              Icons.new_releases,
+              color: Colors.white,
+            ),
           )
         : CircleAvatar(
-            backgroundColor: Color(0xFF00962A),
-            child: Icon(Icons.check),
+            backgroundColor: Color(0xFF76b73f),
+            child: Icon(
+              Icons.check,
+              color: Colors.white,
+            ),
           );
   }
 }

@@ -26,7 +26,9 @@ class GdhoteApiService {
       {SignInModel signInModel}) async {
     ResponseModel response = await GdhoteApiRepository.loginUser(signInModel);
 
-    if (response == null) {}
+    if (response == null) {
+      return Tuple2<bool, String>(false, 'An unknown error occurred');
+    }
 
     if (_isStatusSuccess(response.status)) {
       UserAccountModel userAccountModel =
